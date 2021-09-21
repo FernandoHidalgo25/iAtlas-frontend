@@ -54,7 +54,7 @@ class Country {
         e.preventDefault()
         const newCountry = {
             continent: e.target.continent.value,
-            name : e.target.name.value,
+            name: e.target.name.value,
             capital: e.target.capital.value,
             religion: e.target.religion.value,
             language: e.target.language.value,
