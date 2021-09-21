@@ -12,7 +12,7 @@ Name
 Capital
 Religion
 Language
-Map
+Picture
 user_id
 
 City:

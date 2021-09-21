@@ -8,6 +8,8 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="./src/services/ApiService.js"></script>
      <script src="./src/components/Country.js"></script>
+     <script src="./src/components/City.js"></script>
+     <script src="./src/components/Modal.js"></script>
      <script defer src="./src/index.js"></script>
      <title>iAtlas</title>
    </head>
@@ -122,7 +124,19 @@
   <header><h1>#1 Atlas page</h1></header>
   <p>Hello and welcome to the greatest Atlas on the internet!</p>
   <img src="https://pixelz.cc/wp-content/uploads/2018/12/world-map-with-countries-uhd-4k-wallpaper.jpg" style="width:40em; height:30em;" />
-  <p><iframe width="560" height="315" src="https://www.youtube.com/embed/chkKg9fYuP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-  <div id="main"></div>
+  
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-main"></div>
+    </div>
+  </div>
+  <div id="main">
+    <form>
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username">
+      <input type="submit" value="Submit">    
+    </form>
+  </div>
 </body>
 </html>

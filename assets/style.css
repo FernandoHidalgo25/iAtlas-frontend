@@ -1,4 +1,8 @@
-:root 
+:root{
+    --bg-color: rgb(243, 231, 231);
+    --main-color: #2db4dd;
+    --main-color-transparent: rgba(54, 210, 221, 0.459);
+    } 
 
 *{
   margin: 0;
@@ -295,7 +299,8 @@
     object-fit: cover;
   }
   
-  .modal {
+  /* https://www.w3schools.com/howto/howto_css_modals.asp */
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -309,17 +314,17 @@
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: black;
+    background-color: rgb(243, 235, 235);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid rgb(241, 237, 237);
     border-radius: 1em;
     width: 80%; /* Could be more or less, depending on screen size */
   }
   
   /* The Close Button */
   .close {
-    color: red;
+    color: blue;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -327,9 +332,12 @@
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: blue (197, 149, 149);
     text-decoration: none;
     cursor: pointer;
   }
-
   
+  .number-of-listings {
+    cursor: pointer;
+    text-decoration: underline;
+  }

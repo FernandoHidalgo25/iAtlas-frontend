@@ -1,4 +1,11 @@
-class ApiService {
+country.js /static handlesubmit
+api.createCountry(newCountry).then(country => {
+    new Country(country).renderCard()
+  })
+  modal.close()
+  e.target.reset()
+
+  class ApiService {
 
     constructor(api){
       this.api = api
@@ -6,8 +13,7 @@ class ApiService {
   
     getCountries = () => fetch(this.api + "/countries").then(res => res.json())
 
-    createCountry = (newCountry) => {
-      return fetch(this.api + "/countries", {
+    createCountry = (newCountry) => fetch(this.api + "/countries", {
           method: 'POST', // or 'PUT'
           headers: {
             'Content-Type': 'application/json',
@@ -26,4 +32,3 @@ class ApiService {
       })
       .then(response => response.json())
     }
-}
