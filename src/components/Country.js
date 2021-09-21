@@ -4,6 +4,8 @@ class Country {
 
     constructor(data){
         this.data = data
+        // this.data.cities === [{}, {}, {}]
+        // [City, City, City]
         this.cities = this.data.cities.map(city => new City(city, this))
         this.constructor.all.push(this)
     }
@@ -58,7 +60,11 @@ class Country {
             language: e.target.language.value,
             image_url: e.target.imageUrl.value
         }
-        api.createCountry(newCountry).then(console.log)
+        api.createCountry(newCountry).then(house => {
+            new Country(country).renderCard()
+        })
+        modal.close()
+        e.target.reset()
     }
 
     static openCountryForm = () => {
