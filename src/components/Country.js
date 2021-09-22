@@ -60,6 +60,7 @@ class Country {
             language: e.target.language.value,
             image_url: e.target.imageUrl.value
         }
+        debugger
         api.createCountry(newCountry).then(country => {
             new Country(country).renderCard()
         })
