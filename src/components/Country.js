@@ -4,9 +4,6 @@ class Country {
 
     constructor(data){
         this.data = data
-        // this.data.cities === [{}, {}, {}]
-        // [City, City, City]
-        this.cities = this.data.cities.map(city => new City(city, this))
         this.constructor.all.push(this)
     }
 
@@ -26,7 +23,6 @@ class Country {
         <button id="goBack">Go Back</button>
         `
         document.getElementById("goBack").addEventListener("click", Country.renderIndex)
-        this.cities.forEach(city => city.render())
     }
 
     renderCard = () => {
@@ -36,19 +32,8 @@ class Country {
             <img src=${imageUrl} alt=${name}/>
             <p class="title">${name}</p>
             <p>${capital}, ${language}</p>
-            <p class="number-of-listings">Current number of listings: ${this.cities.length}</p>
         </div>`
     }
-
-    renderCtData = () => {
-        modal.open()
-        modal.main.innerHTML = ""
-        const cityList = document.createElement("ul")
-        modal.main.appendChild(cityList)
-        this.cities.forEach(city => {
-          cityList.innerHTML += `<li>${city.data.population}: $${city.data.crime}</li>`
-        })
-      }
 
     static handleSubmit = (e) => {
         e.preventDefault()
@@ -60,7 +45,6 @@ class Country {
             language: e.target.language.value,
             image_url: e.target.imageUrl.value
         }
-        debugger
         api.createCountry(newCountry).then(country => {
             new Country(country).renderCard()
         })
@@ -108,7 +92,6 @@ class Country {
         countryContainer.id = "country-container"
         const addCountry = document.createElement("button")
         addCountry.innerText = "List a New Country"
-        countryContainer.classList.add("container")
         addCountry.addEventListener("click", this.openCountryForm)
         main.append(countryContainer, addCountry)
         this.all.forEach(country => country.renderCard())
@@ -119,9 +102,6 @@ class Country {
         if (e.target.tagName == "IMG" || e.target.classList.contains("title")){
         const id =e.target.closest(".country-card").dataset.id
         this.find(id).renderShow()
-        }else if (e.target.classList.contains("number-of-listingss")){
-            const id = e.target.closest(".country-card").dataset.id
-            this.find(id).renderCtData()
         }      
      }      
 }

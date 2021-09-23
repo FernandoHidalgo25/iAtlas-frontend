@@ -7,15 +7,17 @@ class ApiService {
     getCountries = () => fetch(this.api + "/countries").then(res => res.json())
 
     createCountry = (newCountry) => {
+      newCountry.user_id = user.id
       return fetch(this.api + "/countries", {
-          method: 'POST', // or 'PUT'
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newCountry),
-        })
-        .then(response => response.json())
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newCountry),
+      })
+      .then(response => response.json())
     }
+
     findOrCreateUser = (username) => {
       return fetch(this.api + "/users", {
         method: 'POST', // or 'PUT'
