@@ -4,6 +4,9 @@ class Country {
 
     constructor(data){
         this.data = data
+        //this.data.cities === [{}, {}, {}]
+        //City, City, City]
+        this.cities = this.data.cities.map(city => new City(city, this))
         this.constructor.all.push(this)
     }
 
@@ -23,6 +26,7 @@ class Country {
         <button id="goBack">Go Back</button>
         `
         document.getElementById("goBack").addEventListener("click", Country.renderIndex)
+        this.cities.forEach(city => city.render())
     }
 
     renderCard = () => {
@@ -32,7 +36,18 @@ class Country {
             <img src=${imageUrl} alt=${name}/>
             <p class="title">${name}</p>
             <p>${capital}, ${language}</p>
+            <p class="number-of-listings"Current number of listings: ${this.cities.length}</p>
         </div>`
+    }
+
+    renderCtData = () => {
+        modal.open()
+        modal.main.innerHTML = ""
+        const cityList = document.createElement("ul")
+        modal.main.appendChild(cityList)
+        this.cities.forEach(city => {
+            cityList.innerHTML += `<li>${city.data.name}: $${city.data.population}</li>`
+        })
     }
 
     static handleSubmit = (e) => {
@@ -100,8 +115,11 @@ class Country {
 
     static handleIndexClick = (e) => {
         if (e.target.tagName == "IMG" || e.target.classList.contains("title")){
-        const id =e.target.closest(".country-card").dataset.id
-        this.find(id).renderShow()
-        }      
+            const id =e.target.closest(".country-card").dataset.id
+            this.find(id).renderShow()
+        }else if (e.target.classList.contains("number-of-listings")){
+            const id = e.target.closest(".country-card").dataset.id
+            this.find(id).renderCtData()
+        }
      }      
 }
