@@ -9,7 +9,67 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
+  background: url(../worldback.jpeg);
+  background-size: cover;
 }
+
+.lgbox{
+  width:300px;
+  padding:30px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  text-align:center;
+}
+
+.lgbox h1
+{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.lgbox input[type="text"],.lgbox input[type="password"]
+{
+  border: 0;
+  background: none;
+  display: url(../worldback.jpeg);
+  margin: 20px auto;
+  text-align: center;
+  border: 3px solid blue;
+  padding: 14px 10px;
+  width: 270px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition:0.25px;
+}
+
+.lgbox input[type="text"],.lgbox input[type="password"]:focus{
+  width: 270px;
+  border-color:gold;
+}
+
+.lgbox input[type="submit"]{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 3px solid gold;
+  padding: 14px 60px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition:0.25px;
+  cursor: pointer;
+}
+
+.lgbox input[type="submit"]:hover{
+  background: gold;
+}
+
 .sidebar{
   position: fixed;
   left: 0;
@@ -23,23 +83,27 @@
 }
 .sidebar.open{
   width: 200px;
+  background: #11101D;
 }
 .sidebar .logo-details{
   height: 60px;
   display: flex;
   align-items: center;
   position: relative;
+  background: #11101D;
 }
 .sidebar .logo-details .icon{
   opacity: 0;
   transition: all 0.5s ease;
+  background: #11101D;
 }
 .sidebar .logo-details .logo_name{
-  color: #fff;
+  color: rgb(28, 173, 209);
   font-size: 20px;
   font-weight: 600;
   opacity: 0;
   transition: all 0.5s ease;
+  background: #11101D;
 }
 .sidebar.open .logo-details .icon,
 .sidebar.open .logo-details .logo_name{
@@ -56,26 +120,30 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
+  background: #1d1b31;
 }
 .sidebar.open .logo-details #btn{
   text-align: right;
 }
 .sidebar i{
-  color: #fff;
+  color: rgb(28, 173, 209);
   height: 60px;
   min-width: 50px;
   font-size: 28px;
   text-align: center;
   line-height: 60px;
+  background: #11101D;
 }
 .sidebar .nav-list{
   margin-top: 20px;
   height: 100%;
+  background: #11101D;
 }
 .sidebar li{
   position: relative;
   margin: 8px 0;
   list-style: none;
+  background: #11101D;
 }
 .sidebar li .tooltip{
   position: absolute;
@@ -92,6 +160,7 @@
   white-space: nowrap;
   pointer-events: none;
   transition: 0s;
+  background: #11101D;
 }
 .sidebar li:hover .tooltip{
   opacity: 1;
@@ -99,9 +168,11 @@
   transition: all 0.4s ease;
   top: 50%;
   transform: translateY(-50%);
+  background: #11101D;
 }
 .sidebar.open li .tooltip{
   display: none;
+  background: #11101D;
 }
 .sidebar input{
   font-size: 15px;
@@ -114,7 +185,7 @@
   border: none;
   border-radius: 12px;
   transition: all 0.5s ease;
-  background: #1d1b31;
+  background: #11101D;
 }
 .sidebar.open input{
   padding: 0 20px 0 50px;
@@ -148,10 +219,10 @@
   background: #11101D;
 }
 .sidebar li a:hover{
-  background: #FFF;
+  background: #11101D;
 }
 .sidebar li a .links_name{
-  color: #fff;
+  background: #11101D;
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
@@ -162,6 +233,7 @@
 .sidebar.open li a .links_name{
   opacity: 1;
   pointer-events: auto;
+  color: rgb(28, 173, 209);
 }
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i{
@@ -173,11 +245,12 @@
   line-height: 50px;
   font-size: 18px;
   border-radius: 12px;
+  background: #11101D;
 }
 .sidebar li.profile{
   position: fixed;
   height: 60px;
-  width: 78px;
+  width: 60px;
   left: 0;
   bottom: -8px;
   padding: 10px 14px;
@@ -186,12 +259,14 @@
   overflow: hidden;
 }
 .sidebar.open li.profile{
-  width: 250px;
+  width: 150px;
+  background: #11101D;
 }
 .sidebar li .profile-details{
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+  background: #11101D;
 }
 .sidebar li img{
   height: 45px;
@@ -199,12 +274,13 @@
   object-fit: cover;
   border-radius: 6px;
   margin-right: 10px;
+  background: #11101D;
 }
 .sidebar li.profile .name,
 .sidebar li.profile .job{
   font-size: 15px;
   font-weight: 400;
-  color: #fff;
+  background: #11101D;
   white-space: nowrap;
 }
 .sidebar li.profile .job{
@@ -216,14 +292,14 @@
   right: 0;
   transform: translateY(-50%);
   background: #1d1b31;
-  width: 100%;
+  width: 50%;
   height: 60px;
   line-height: 60px;
   border-radius: 0px;
   transition: all 0.5s ease;
 }
 .sidebar.open .profile #log_out{
-  width: 50px;
+  width: 0px;
   background: none;
 }
 .home-section{
